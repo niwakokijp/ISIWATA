@@ -1,23 +1,384 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OFFICIAL WEBSITE | MMA FIGHTER</title>
-  <meta name="description" content="プロMMAファイター 公式ポートフォリオサイト">
+  <title>HIROTAKA ISIWATA | OFFICIAL WEBSITE</title>
+  <meta name="description" content="総合格闘家・石渡寛崇（Fired Up Gym）オフィシャルウェブサイト">
   
   <!-- Google Fonts（太く存在感のある英語フォント + 視認性の高い日本語） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,900&family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===================================================
+       RESET & BASE
+       =================================================== */
+    :root {
+      --bg-color: #ffffff;
+      --bg-sub: #f7f7f8;
+      --text-main: #0a0a0a;
+      --text-muted: #737373;
+      --border-color: #0a0a0a;
+      --border-light: #e5e5e5;
+      --font-en: 'Montserrat', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-jp);
+      line-height: 1.6;
+    }
+
+    /* ===================================================
+       HEADER
+       =================================================== */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      border-bottom: 1px solid var(--border-light);
+      background-color: rgba(255, 255, 255, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .logo {
+      font-family: var(--font-en);
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      font-size: 1.1rem;
+    }
+    .nav a {
+      font-family: var(--font-en);
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      text-decoration: none;
+      margin-left: 18px;
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+    }
+    .nav a:hover { opacity: 0.5; }
+
+    /* ===================================================
+       HERO SECTION（天心風の超特大タイポグラフィ）
+       =================================================== */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      padding: 60px 5% 40px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    @media (min-width: 860px) {
+      .hero {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        min-height: 75vh;
+        padding-bottom: 70px;
+      }
+    }
+    .hero-text { flex: 1; z-index: 2; }
+    .hero-label {
+      display: inline-block;
+      font-family: var(--font-en);
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+      background: var(--text-main);
+      color: #fff;
+      padding: 4px 8px;
+    }
+    .hero-name {
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(3.2rem, 9.5vw, 7.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-weight: 900;
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-team {
+      font-family: var(--font-en);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 800;
+      margin-top: 6px;
+      letter-spacing: 0.05em;
+    }
+    .hero-image-wrapper {
+      flex: 1;
+      max-width: 500px;
+      margin-top: 30px;
+    }
+    @media (min-width: 860px) { .hero-image-wrapper { margin-top: 0; } }
+    .hero-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(100%) contrast(110%);
+    }
+
+    /* ===================================================
+       CONTAINER & SECTIONS
+       =================================================== */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+    .section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 35px;
+    }
+    .section-num {
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+    .section-title {
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: 1.85rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* ===================================================
+       01. NEXT FIGHT
+       =================================================== */
+    .fight-box {
+      border: 2px solid var(--border-color);
+      padding: 50px 20px;
+      background: var(--bg-sub);
+      text-align: center;
+    }
+    .status-badge {
+      display: inline-block;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      border: 1px solid var(--border-color);
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+    .teaser-title {
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .teaser-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ===================================================
+       02. PROFILE
+       =================================================== */
+    .profile-grid { border-top: 1px solid var(--border-color); }
+    .spec-row {
+      display: flex;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .spec-label {
+      width: 140px;
+      font-family: var(--font-en);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+    .spec-value {
+      flex: 1;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ===================================================
+       03. RECORD
+       =================================================== */
+    .record-summary {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .record-stat {
+      flex: 1;
+      border: 1px solid var(--border-color);
+      padding: 20px 10px;
+      text-align: center;
+    }
+    .stat-num {
+      display: block;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: 3rem;
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--font-en);
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .record-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .record-item {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border: 1px solid var(--border-light);
+      gap: 20px;
+      background: #fff;
+    }
+    .record-result {
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border: 1px solid var(--border-color);
+      min-width: 75px;
+      text-align: center;
+    }
+    .record-result.win {
+      background: var(--text-main);
+      color: #fff;
+    }
+    .record-result.lose {
+      background: #fff;
+      color: var(--text-muted);
+      border-color: var(--border-light);
+    }
+    .record-detail {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .record-date {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .record-opponent { color: var(--text-main); }
+    .record-method {
+      color: var(--text-muted);
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    /* ===================================================
+       04. SPONSOR & 05. CONTACT
+       =================================================== */
+    .sponsor-box, .contact-card {
+      border: 1px solid var(--border-color);
+      padding: 40px 24px;
+      background: var(--bg-sub);
+    }
+    .sponsor-lead {
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+    .sponsor-text, .contact-desc {
+      font-size: 0.95rem;
+      color: #333;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+    .sns-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .sns-link {
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+      padding: 12px 20px;
+      transition: all 0.2s ease;
+    }
+    .sns-link:hover {
+      background: var(--text-main);
+      color: #fff;
+    }
+    .btn {
+      display: inline-block;
+      font-family: var(--font-en);
+      font-weight: 800;
+      text-decoration: none;
+      padding: 16px 32px;
+      border: 2px solid var(--border-color);
+      background: var(--text-main);
+      color: #fff;
+      border-radius: 0;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      background: #fff;
+      color: var(--text-main);
+    }
+    .btn-large {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* ===================================================
+       FOOTER
+       =================================================== */
+    .footer {
+      padding: 40px 5%;
+      text-align: center;
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
 
   <!-- ナビゲーション -->
   <header class="header">
-    <div class="logo">MMA FIGHTER</div>
+    <div class="logo">HIROTAKA ISIWATA</div>
     <nav class="nav">
       <a href="#next-fight">FIGHT</a>
       <a href="#profile">PROFILE</a>
@@ -31,19 +392,19 @@
   <section class="hero">
     <div class="hero-text">
       <span class="hero-label">PROFESSIONAL MMA FIGHTER</span>
-      <!-- 選手名（英語）：超特大タイポグラフィ -->
-      <h1 class="hero-name">TARO<br>YAMADA</h1>
-      <p class="hero-sub">山田 太郎 / FEATHERWEIGHT</p>
-      <p class="hero-team">AFFILIATION: 〇〇 GYM / TOKYO</p>
+      <!-- 天心風・極太タイポグラフィ -->
+      <h1 class="hero-name">HIROTAKA<br>ISIWATA</h1>
+      <p class="hero-sub">石渡 寛崇 / PRO MMA FIGHTER</p>
+      <p class="hero-team">AFFILIATION: FIRED UP GYM</p>
     </div>
     
     <div class="hero-image-wrapper">
       <!-- 
-        ※ 画像の差し替え方法：
-        同フォルダに画像を置き（例: fighter.jpg）、src属性を変更してください。
-        モノクロ調または背景白抜きの写真が最も馴染みます。
+        ※ 写真の差し替え方法：
+        GitHubに画像（例: isiwata.jpg）をアップロード後、
+        src="isiwata.jpg" に書き換えてください。
       -->
-      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1000&auto=format&fit=crop" alt="山田太郎 メインビジュアル" class="hero-img">
+      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1000&auto=format&fit=crop" alt="石渡寛崇 メインビジュアル" class="hero-img">
     </div>
   </section>
 
@@ -56,33 +417,14 @@
         <h2 class="section-title">NEXT FIGHT</h2>
       </div>
 
-      <!-- 
-        【現状】COMING SOON 表示
-        ※ 試合が決定した際は、下のコメントアウトされた「情報解禁後レイアウト」に差し替えてください。
-      -->
-      <div class="fight-box teaser-box">
+      <div class="fight-box">
         <div class="status-badge">STATUS</div>
         <h3 class="teaser-title">COMING SOON</h3>
         <p class="teaser-desc">
-          次回出場大会・対戦カードは決定次第、当サイトおよび公式SNSにて解禁いたします。<br>
-          チケット予約の受付開始まで今しばらくお待ちください。
+          次回出場大会・対戦カードは決定次第、当サイトおよび公式SNSにて発表いたします。<br>
+          応援チケット予約の受付開始まで今しばらくお待ちください。
         </p>
       </div>
-
-      <!-- 
-      【情報解禁後の差し替え用コード例（使用時はコメントを解除）】
-      <div class="fight-box match-box">
-        <div class="fight-date">2026.11.20 [SUN] OPEN 14:00 / START 15:00</div>
-        <h3 class="fight-event">EVENT NAME 00</h3>
-        <div class="matchup">
-          <span class="fighter self">TARO YAMADA</span>
-          <span class="vs">VS</span>
-          <span class="fighter opponent">OPPONENT NAME</span>
-        </div>
-        <p class="fight-place">VENUE: 後楽園ホール</p>
-        <a href="#contact" class="btn btn-black">選手応援チケット予約はこちら</a>
-      </div>
-      -->
     </section>
 
     <!-- 3. PROFILE セクション -->
@@ -94,28 +436,34 @@
       <div class="profile-grid">
         <div class="spec-row">
           <span class="spec-label">NAME</span>
-          <span class="spec-value">山田 太郎（Taro Yamada）</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">DIVISION</span>
-          <span class="spec-value">フェザー級（-65.8kg）</span>
+          <span class="spec-value">石渡 寛崇（Hirotaka Isiwata）</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">BORN</span>
-          <span class="spec-value">東京都 / 2003年〇月〇日</span>
+          <span class="spec-value">2006年1月6日</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">ORIGIN</span>
+          <span class="spec-value">東京都渋谷区</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">HEIGHT</span>
-          <span class="spec-value">175 cm</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">BASE</span>
-          <span class="spec-value">レスリング / ブラジリアン柔術</span>
+          <span class="spec-value">176 cm</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">AFFILIATION</span>
-          <span class="spec-value">〇〇 GYM</span>
+          <span class="spec-value">Fired Up Gym</span>
         </div>
+        <!-- 階級やバックボーンが決まり次第、下記行のコメントを外して使えます
+        <div class="spec-row">
+          <span class="spec-label">DIVISION</span>
+          <span class="spec-value">バンタム級 / フェザー級</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">BASE</span>
+          <span class="spec-value">ストライキング / レスリング</span>
+        </div>
+        -->
       </div>
     </section>
 
@@ -126,14 +474,14 @@
         <h2 class="section-title">RECORD</h2>
       </div>
       
-      <!-- 戦績サマリーカウンター -->
+      <!-- 通算戦績サマリー -->
       <div class="record-summary">
         <div class="record-stat">
-          <span class="stat-num">1</span>
-          <span class="stat-label">WIN</span>
+          <span class="stat-num">2</span>
+          <span class="stat-label">WIN (1 KO)</span>
         </div>
         <div class="record-stat">
-          <span class="stat-num">0</span>
+          <span class="stat-num">1</span>
           <span class="stat-label">LOSE</span>
         </div>
         <div class="record-stat">
@@ -142,23 +490,32 @@
         </div>
       </div>
 
-      <!-- 試合リスト -->
+      <!-- 試合履歴（新しい順） -->
       <div class="record-list">
+        <div class="record-item">
+          <div class="record-result lose">LOSE</div>
+          <div class="record-detail">
+            <span class="record-date">2026.06.21</span>
+            <span class="record-opponent">vs 藁谷 兼介</span>
+            <span class="record-method">KO負け</span>
+          </div>
+        </div>
+
         <div class="record-item">
           <div class="record-result win">WIN</div>
           <div class="record-detail">
-            <span class="record-event">DEEP / 2026.06.15</span>
-            <span class="record-opponent">vs 〇〇 〇〇</span>
-            <span class="record-method">1R 2:34 TKO（パウンド）</span>
+            <span class="record-date">2026.04.04</span>
+            <span class="record-opponent">vs ハルキカイ</span>
+            <span class="record-method">KO勝ち</span>
           </div>
         </div>
-        <!-- アマチュア時代のハイライトも初期は載せると説得力が増します -->
-        <div class="record-item amateur">
-          <div class="record-result">AMATEUR</div>
+
+        <div class="record-item">
+          <div class="record-result win">WIN</div>
           <div class="record-detail">
-            <span class="record-event">アマチュアMMA 全日本選手権</span>
-            <span class="record-opponent">トーナメント準優勝</span>
-            <span class="record-method">通算 6戦 5勝 1敗</span>
+            <span class="record-date">2025.11.01</span>
+            <span class="record-opponent">vs 長谷川 柊哉</span>
+            <span class="record-method">判定勝ち</span>
           </div>
         </div>
       </div>
@@ -173,10 +530,10 @@
       <div class="sponsor-box">
         <h3 class="sponsor-lead">スポンサー・パートナー企業様を募集しております</h3>
         <p class="sponsor-text">
-          世界最高峰を目指し挑戦を続ける山田太郎の選手活動をご支援いただける企業様・個人スポンサー様を募集しております。<br>
+          世界最高峰を目指し挑戦を続ける石渡寛崇の選手活動をご支援いただける企業様・個人スポンサー様を募集しております。<br>
           ファイトパンツ・練習着への企業ロゴ掲示、SNSでのPR協力など、柔軟にご提案させていただきます。お気軽にお問い合わせください。
         </p>
-        <a href="#contact" class="btn btn-black">協賛に関するお問い合わせ</a>
+        <a href="#contact" class="btn">協賛に関するお問い合わせ</a>
       </div>
     </section>
 
@@ -187,20 +544,18 @@
         <h2 class="section-title">CONTACT & SNS</h2>
       </div>
 
-      <!-- 公式SNSリンク -->
+      <!-- SNSリンク（後から各URLを編集してください） -->
       <div class="sns-wrapper">
         <a href="https://instagram.com" target="_blank" rel="noopener" class="sns-link">INSTAGRAM ↗</a>
         <a href="https://x.com" target="_blank" rel="noopener" class="sns-link">X (TWITTER) ↗</a>
         <a href="https://youtube.com" target="_blank" rel="noopener" class="sns-link">YOUTUBE ↗</a>
       </div>
 
-      <!-- お問い合わせ（初期はメールリンクまたはGoogleフォーム連携が安全です） -->
       <div class="contact-card">
         <p class="contact-desc">
           チケットのお取り置き、取材・出演のご依頼、スポンサーシップに関するお問い合わせは、下記窓口または各種SNSのDMよりご連絡ください。
         </p>
-        <!-- 活動用メールアドレスへダイレクトに届くリンク -->
-        <a href="mailto:info@example.com?subject=【公式サイトよりお問い合わせ】" class="btn btn-black btn-large">
+        <a href="mailto:info@example.com?subject=【公式サイトよりお問い合わせ】石渡寛崇宛" class="btn btn-large">
           メールでお問い合わせを送信
         </a>
       </div>
@@ -209,9 +564,8 @@
   </main>
 
   <footer class="footer">
-    <p>&copy; 2026 TARO YAMADA. ALL RIGHTS RESERVED.</p>
+    <p>&copy; 2026 HIROTAKA ISIWATA. ALL RIGHTS RESERVED.</p>
   </footer>
 
 </body>
 </html>
-
