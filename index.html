@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OFFICIAL WEBSITE | MMA FIGHTER</title>
+  <meta name="description" content="プロMMAファイター 公式ポートフォリオサイト">
+  
+  <!-- Google Fonts（太く存在感のある英語フォント + 視認性の高い日本語） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,900&family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <header class="header">
+    <div class="logo">MMA FIGHTER</div>
+    <nav class="nav">
+      <a href="#next-fight">FIGHT</a>
+      <a href="#profile">PROFILE</a>
+      <a href="#record">RECORD</a>
+      <a href="#sponsor">SPONSOR</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <!-- 1. HERO セクション -->
+  <section class="hero">
+    <div class="hero-text">
+      <span class="hero-label">PROFESSIONAL MMA FIGHTER</span>
+      <!-- 選手名（英語）：超特大タイポグラフィ -->
+      <h1 class="hero-name">TARO<br>YAMADA</h1>
+      <p class="hero-sub">山田 太郎 / FEATHERWEIGHT</p>
+      <p class="hero-team">AFFILIATION: 〇〇 GYM / TOKYO</p>
+    </div>
+    
+    <div class="hero-image-wrapper">
+      <!-- 
+        ※ 画像の差し替え方法：
+        同フォルダに画像を置き（例: fighter.jpg）、src属性を変更してください。
+        モノクロ調または背景白抜きの写真が最も馴染みます。
+      -->
+      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1000&auto=format&fit=crop" alt="山田太郎 メインビジュアル" class="hero-img">
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- 2. NEXT FIGHT セクション -->
+    <section id="next-fight" class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">NEXT FIGHT</h2>
+      </div>
+
+      <!-- 
+        【現状】COMING SOON 表示
+        ※ 試合が決定した際は、下のコメントアウトされた「情報解禁後レイアウト」に差し替えてください。
+      -->
+      <div class="fight-box teaser-box">
+        <div class="status-badge">STATUS</div>
+        <h3 class="teaser-title">COMING SOON</h3>
+        <p class="teaser-desc">
+          次回出場大会・対戦カードは決定次第、当サイトおよび公式SNSにて解禁いたします。<br>
+          チケット予約の受付開始まで今しばらくお待ちください。
+        </p>
+      </div>
+
+      <!-- 
+      【情報解禁後の差し替え用コード例（使用時はコメントを解除）】
+      <div class="fight-box match-box">
+        <div class="fight-date">2026.11.20 [SUN] OPEN 14:00 / START 15:00</div>
+        <h3 class="fight-event">EVENT NAME 00</h3>
+        <div class="matchup">
+          <span class="fighter self">TARO YAMADA</span>
+          <span class="vs">VS</span>
+          <span class="fighter opponent">OPPONENT NAME</span>
+        </div>
+        <p class="fight-place">VENUE: 後楽園ホール</p>
+        <a href="#contact" class="btn btn-black">選手応援チケット予約はこちら</a>
+      </div>
+      -->
+    </section>
+
+    <!-- 3. PROFILE セクション -->
+    <section id="profile" class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">PROFILE</h2>
+      </div>
+      <div class="profile-grid">
+        <div class="spec-row">
+          <span class="spec-label">NAME</span>
+          <span class="spec-value">山田 太郎（Taro Yamada）</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">DIVISION</span>
+          <span class="spec-value">フェザー級（-65.8kg）</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">BORN</span>
+          <span class="spec-value">東京都 / 2003年〇月〇日</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">HEIGHT</span>
+          <span class="spec-value">175 cm</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">BASE</span>
+          <span class="spec-value">レスリング / ブラジリアン柔術</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">AFFILIATION</span>
+          <span class="spec-value">〇〇 GYM</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. RECORD セクション -->
+    <section id="record" class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">RECORD</h2>
+      </div>
+      
+      <!-- 戦績サマリーカウンター -->
+      <div class="record-summary">
+        <div class="record-stat">
+          <span class="stat-num">1</span>
+          <span class="stat-label">WIN</span>
+        </div>
+        <div class="record-stat">
+          <span class="stat-num">0</span>
+          <span class="stat-label">LOSE</span>
+        </div>
+        <div class="record-stat">
+          <span class="stat-num">0</span>
+          <span class="stat-label">DRAW</span>
+        </div>
+      </div>
+
+      <!-- 試合リスト -->
+      <div class="record-list">
+        <div class="record-item">
+          <div class="record-result win">WIN</div>
+          <div class="record-detail">
+            <span class="record-event">DEEP / 2026.06.15</span>
+            <span class="record-opponent">vs 〇〇 〇〇</span>
+            <span class="record-method">1R 2:34 TKO（パウンド）</span>
+          </div>
+        </div>
+        <!-- アマチュア時代のハイライトも初期は載せると説得力が増します -->
+        <div class="record-item amateur">
+          <div class="record-result">AMATEUR</div>
+          <div class="record-detail">
+            <span class="record-event">アマチュアMMA 全日本選手権</span>
+            <span class="record-opponent">トーナメント準優勝</span>
+            <span class="record-method">通算 6戦 5勝 1敗</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SPONSOR セクション -->
+    <section id="sponsor" class="section">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">SPONSOR & PARTNER</h2>
+      </div>
+      <div class="sponsor-box">
+        <h3 class="sponsor-lead">スポンサー・パートナー企業様を募集しております</h3>
+        <p class="sponsor-text">
+          世界最高峰を目指し挑戦を続ける山田太郎の選手活動をご支援いただける企業様・個人スポンサー様を募集しております。<br>
+          ファイトパンツ・練習着への企業ロゴ掲示、SNSでのPR協力など、柔軟にご提案させていただきます。お気軽にお問い合わせください。
+        </p>
+        <a href="#contact" class="btn btn-black">協賛に関するお問い合わせ</a>
+      </div>
+    </section>
+
+    <!-- 6. CONTACT & SNS セクション -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">CONTACT & SNS</h2>
+      </div>
+
+      <!-- 公式SNSリンク -->
+      <div class="sns-wrapper">
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="sns-link">INSTAGRAM ↗</a>
+        <a href="https://x.com" target="_blank" rel="noopener" class="sns-link">X (TWITTER) ↗</a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" class="sns-link">YOUTUBE ↗</a>
+      </div>
+
+      <!-- お問い合わせ（初期はメールリンクまたはGoogleフォーム連携が安全です） -->
+      <div class="contact-card">
+        <p class="contact-desc">
+          チケットのお取り置き、取材・出演のご依頼、スポンサーシップに関するお問い合わせは、下記窓口または各種SNSのDMよりご連絡ください。
+        </p>
+        <!-- 活動用メールアドレスへダイレクトに届くリンク -->
+        <a href="mailto:info@example.com?subject=【公式サイトよりお問い合わせ】" class="btn btn-black btn-large">
+          メールでお問い合わせを送信
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 TARO YAMADA. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+</body>
+</html>
 
