@@ -142,7 +142,8 @@ html {
   width: 100%;
   height: auto;
   display: block;
-  filter: grayscale(100%) contrast(110%); /* 白黒＆コントラスト強めでモード感を強調 */
+    filter: contrast(105%) saturate(108%);
+
 }
 
 /* ===================================================
